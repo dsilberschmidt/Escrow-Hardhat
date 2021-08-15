@@ -9,6 +9,7 @@ contract Escrow {
 	bool public isApproved;
 
 	constructor(address _arbiter, address payable _beneficiary) payable {
+		require(_arbiter != msg.sender);
 		arbiter = _arbiter;
 		beneficiary = _beneficiary;
 		depositor = msg.sender;
